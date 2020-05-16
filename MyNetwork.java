@@ -6,7 +6,6 @@ import com.oocourse.spec3.exceptions.EqualRelationException;
 import com.oocourse.spec3.exceptions.GroupIdNotFoundException;
 import com.oocourse.spec3.exceptions.PersonIdNotFoundException;
 import com.oocourse.spec3.exceptions.RelationNotFoundException;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -452,7 +451,6 @@ public class MyNetwork implements Network {
 
     @Override
     public int queryBlockSum() {
-
         int sum = 0;
         for (int i = 0; i < people.size(); i++) {
             int flag = 1;
@@ -462,8 +460,8 @@ public class MyNetwork implements Network {
                         flag = 0;
                         break;
                     }
-                } catch (PersonIdNotFoundException e) {
-                    //e.printStackTrace();
+                } catch (PersonIdNotFoundException ignored) {
+                    //do nothing
                 }
             }
             if (flag == 1) {
