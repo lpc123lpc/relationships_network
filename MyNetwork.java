@@ -220,7 +220,7 @@ public class MyNetwork implements Network {
             if (three) {
                 throw new EqualPersonIdException();
             }
-            else if (four){
+            else if (four) {
                 group.addPerson(person);
             }
         }
@@ -307,7 +307,7 @@ public class MyNetwork implements Network {
         for (Person person : people) {
             int age = person.getAge();
             if (age >= l && age <= r) {
-                sum ++;
+                sum++;
             }
         }
         return sum;
@@ -343,12 +343,12 @@ public class MyNetwork implements Network {
                 return -1;
             }
             else {
-                Person person1 = getPerson(id1);
-                Person person2 = getPerson(id2);
                 ArrayList<Person> temp = new ArrayList<>();
+                Person person1 = getPerson(id1);
                 temp.add(person1);
                 valueSum = 0;
                 path.clear();
+                Person person2 = getPerson(id2);
                 getPath(person1,person2,people,temp);
                 int min = 0;
                 for (int x : path) {
@@ -413,7 +413,7 @@ public class MyNetwork implements Network {
                         return false;
                     }
                     else {
-                        for (int i = 0;i<temp1.size();i++) {
+                        for (int i = 0;i < temp1.size();i++) {
                             if (!temp1.get(i).equals(temp2.get(i))) {
                                 return false;
                             }
@@ -452,8 +452,8 @@ public class MyNetwork implements Network {
 
     @Override
     public int queryBlockSum() {
-        int sum = 0;
-        for (int i = 0; i < people.size() ;i++) {
+        int sum = 1;
+        for (int i = 0; i < people.size(); i++) {
             for (int j = 0; j < i; j++) {
                 try {
                     if (!isCircle(people.get(i).getId(),people.get(j).getId())) {
@@ -478,8 +478,8 @@ public class MyNetwork implements Network {
                 throw new EqualPersonIdException();
             }
             else {
-                money.put(id1,money.get(id1)-value);
-                money.put(id2,money.get(id2)+value);
+                money.put(id1,money.get(id1) - value);
+                money.put(id2,money.get(id2) + value);
             }
         }
     }
