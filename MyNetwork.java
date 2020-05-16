@@ -452,16 +452,22 @@ public class MyNetwork implements Network {
 
     @Override
     public int queryBlockSum() {
-        int sum = 1;
+
+        int sum = 0;
         for (int i = 0; i < people.size(); i++) {
+            int flag = 1;
             for (int j = 0; j < i; j++) {
                 try {
-                    if (!isCircle(people.get(i).getId(),people.get(j).getId())) {
-                        sum++;
+                    if (isCircle(people.get(i).getId(),people.get(j).getId())) {
+                        flag = 0;
+                        break;
                     }
                 } catch (PersonIdNotFoundException e) {
                     //e.printStackTrace();
                 }
+            }
+            if (flag == 1) {
+                sum++;
             }
         }
         return sum;
